@@ -1,0 +1,78 @@
+{
+	"name": "modern-navigations",
+	"displayName": "Modern Navigations",
+	"description": "Advanced cursor navigation for identifiers (CamelCase, snake_case, kebab-case)",
+	"version": "1.0.2",
+	"author": {
+		"name": "Slipum",
+		"url": "https://github.com/Slipum"
+	},
+	"publisher": "slipum",
+	"engines": {
+		"vscode": "^1.85.0"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/"
+	},
+	"homepage": "https://github.com/",
+	"icon": "public/icon.png",
+	"categories": [
+		"Other"
+	],
+	"activationEvents": [],
+	"main": "./out/extension.js",
+	"contributes": {
+		"commands": [
+			{
+				"command": "modernNavigation.left",
+				"title": "Modern Navigation Left"
+			},
+			{
+				"command": "modernNavigation.right",
+				"title": "Modern Navigation Right"
+			}
+		],
+		"keybindings": [
+			{
+				"command": "modernNavigation.left",
+				"key": "ctrl+left",
+				"mac": "alt+left",
+				"when": "editorTextFocus"
+			},
+			{
+				"command": "modernNavigation.right",
+				"key": "ctrl+right",
+				"mac": "alt+right",
+				"when": "editorTextFocus"
+			}
+		],
+		"configuration": {
+			"title": "Modern Navigation",
+			"properties": {
+				"modernNavigation.fileExtensions": {
+					"type": "array",
+					"items": {
+						"type": "string"
+					},
+					"default": [],
+					"description": "File extensions to use modern navigation (e.g. ['*.jsx', '*.c']). Empty = all files."
+				},
+				"modernNavigation.useInProjectFiles": {
+					"type": "boolean",
+					"default": true,
+					"description": "Use modern navigation for folder and file names in Project view"
+				}
+			}
+		}
+	},
+	"scripts": {
+		"vscode:prepublish": "npm run compile",
+		"compile": "tsc -p ./",
+		"watch": "tsc -watch -p ./"
+	},
+	"devDependencies": {
+		"@types/vscode": "^1.85.0",
+		"typescript": "^5.3.0"
+	}
+}
